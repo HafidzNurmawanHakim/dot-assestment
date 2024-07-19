@@ -1,0 +1,100 @@
+.button {
+   width: fit-content;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 10px;
+   padding: 0px 15px;
+   border-radius: 10px;
+   color: white;
+   border: none;
+   position: relative;
+   cursor: pointer;
+   transition-duration: 0.2s;
+}
+
+.button.primary {
+   background-color: rgb(66, 66, 66);
+}
+
+.button.danger {
+   background-color: #c20e4d;
+}
+.button.transparent {
+   background-color: transparent;
+}
+
+.button.warning {
+   background-color: rgb(255, 165, 0);
+}
+
+.button.secondary {
+   background-color: rgb(128, 128, 128);
+}
+
+.bell {
+   width: 13px;
+}
+
+.bell path {
+   fill: rgb(0, 206, 62);
+}
+
+.arrow {
+   position: absolute;
+   right: 0;
+   width: 30px;
+   height: 100%;
+   font-size: 18px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.button:hover {
+   background-color: rgb(77, 77, 77);
+   transition-duration: 0.2s;
+}
+
+.button.primary:hover {
+   background-color: rgb(77, 77, 77);
+}
+
+.button.danger:hover {
+   background-color: #920b3a;
+}
+
+.button.warning:hover {
+   background-color: rgb(255, 190, 77);
+}
+
+.button.secondary:hover {
+   background-color: rgb(153, 153, 153);
+}
+
+.button.transparent:hover {
+   background-color: transparent;
+}
+
+.button:hover .arrow {
+   animation: slide-right 0.6s ease-out both;
+}
+
+/* arrow animation */
+@keyframes slide-right {
+   0% {
+      transform: translateX(-10px);
+      opacity: 0;
+   }
+
+   100% {
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+.button:active {
+   transform: translate(1px, 1px);
+   transition-duration: 0.2s;
+}

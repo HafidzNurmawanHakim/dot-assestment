@@ -1,0 +1,107 @@
+$p: hsl(0, 0%, 6%);
+$s: hsl(233deg 36% 38%);
+* {
+   font-family: "Poppins";
+}
+@mixin screen {
+   background: $p;
+   padding: 2em;
+   display: flex;
+   flex-direction: column;
+   border-radius: 30px;
+   // box-shadow: 0 0 2em hsl(0, 0%, 6%);
+}
+body {
+   user-select: none;
+   overflow-y: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: hsl(0, 0%, 0%);
+   height: 100vh;
+}
+.screen-1 {
+   @include screen;
+   gap: 2em;
+   form {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+   }
+   .logo {
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+      width: 100%;
+      .svg-logo {
+         margin: 0 auto;
+      }
+   }
+   .username {
+      background: hsl(0, 0%, 10%);
+      // box-shadow: 0 0 2em hsl(0, 0%, 10%);
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      border-radius: 20px;
+      color: hsl(0deg 0% 30%);
+      input {
+         outline: none;
+         border: none;
+         background: hsl(0, 0%, 10%);
+         color: hsl(0, 0%, 100%);
+         margin-left: 0.5em;
+      }
+      .icon {
+         color: hsl(0deg 0% 30%);
+         margin-bottom: -0.4em;
+      }
+   }
+   .password {
+      background: hsl(0, 0%, 10%);
+      // box-shadow: 0 0 2em hsl(0, 0%, 10%);
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      border-radius: 20px;
+      color: hsl(0deg 0% 30%);
+      input {
+         outline: none;
+         border: none;
+         background: hsl(0, 0%, 10%);
+         color: hsl(0, 0%, 100%);
+         margin-left: 0.5em;
+      }
+      .icon {
+         color: hsl(0deg 0% 30%);
+         margin-bottom: -0.4em;
+      }
+      .show-hide {
+         margin-right: -5em;
+      }
+   }
+   .login {
+      padding: 1em;
+      background: hsl(233deg 36% 38%);
+      color: hsl(0 0 100);
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+   }
+   .footer {
+      display: flex;
+      font-size: 0.7em;
+      color: hsl(0deg 0% 37%);
+      gap: 14em;
+      span {
+         cursor: pointer;
+      }
+   }
+}
+
+button {
+   cursor: pointer;
+}

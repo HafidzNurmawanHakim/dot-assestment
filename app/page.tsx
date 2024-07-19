@@ -1,95 +1,45 @@
-import Image from "next/image";
+"use server";
 import styles from "./page.module.css";
+import DefaultLayout from "@/modules/defaultLayout";
+import axios from "axios";
+import { Product } from "@/lib/_types";
+import ProductList from "./components/ProductList";
+import { fontPoppins } from "@/lib/fonts";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+async function getData({ page = 1 }) {
+   try {
+      const data = await axios.get(`${process.env.NEXT_PUBLIC_SERVICE_URL}/products?page=${page}`, {
+         headers: {
+            "Content-Type": "application/json",
+         },
+      });
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      if (data.status !== 200) {
+         throw new Error(`Failed to fetch: ${data.statusText}`);
+      }
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      return data.data;
+   } catch (error) {
+      console.log({ error });
+   }
+}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+export default async function Home({
+   searchParams,
+}: {
+   searchParams?: {
+      query?: string;
+      page?: number;
+   };
+}) {
+   const data: Product[] = await getData({ page: searchParams?.page });
+   return (
+      <DefaultLayout>
+         <div className={styles.cssPurpleGradient}></div>
+         <div className={styles.center}></div>
+         <h1 className={styles.title + " " + fontPoppins.className}>Product</h1>
+         <ProductList data={data} />
+         <div className={styles.cssRedGradient}></div>
+      </DefaultLayout>
+   );
 }
