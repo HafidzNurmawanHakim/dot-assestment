@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import NextSessionProvider from "./sessionProvider";
 import { useParams } from "next/navigation";
+import authOptions from "@/lib/authOptions";
 
 const inter = Inter({ subsets: ["latin"] });
 
