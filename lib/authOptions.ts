@@ -1,7 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
    pages: {
       signIn: "/login",
    },
@@ -65,3 +65,5 @@ export const authOptions: NextAuthOptions = {
    },
    events: {},
 };
+
+export default authOptions;
