@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
-import { getServerSession } from "next-auth";
+import { getServerSession, Session } from "next-auth";
 import NextSessionProvider from "./sessionProvider";
 import { useParams } from "next/navigation";
 import authOptions from "@/lib/authOptions";
@@ -21,9 +21,8 @@ export default function RootLayout({
 }: Readonly<{
    children: React.ReactNode;
 }>) {
-   const session = getServerSession(authOptions);
    return (
-      <NextSessionProvider session={session}>
+      <NextSessionProvider>
          <html lang="en">
             <body className={inter.className}>{children}</body>
          </html>

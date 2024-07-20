@@ -60,6 +60,7 @@ const authOptions: NextAuthOptions = {
                id: token.id,
                email: "test@gmail.com",
             },
+            expires: "1d",
          };
       },
    },
