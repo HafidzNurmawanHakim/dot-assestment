@@ -5,6 +5,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 -  username: test
 -  pass: test123
 
+Create .env.local and Add below:
+
+NEXTAUTH_SECRET=b4rngKw1nkCilrp0zCEqeP3WE9dEdj2rvNTls5Rj3xs=
+NEXT_PUBLIC_SERVICE_URL=https://fakestoreapi.com
+
 ## Getting Started
 
 First, run the development server:
