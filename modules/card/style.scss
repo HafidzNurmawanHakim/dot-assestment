@@ -362,7 +362,8 @@ body {
    font-family: "Inter", Arial;
    justify-content: center;
    align-items: center;
-   background-color: var(--background-color);
+   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+      rgb(var(--background-start-rgb));
    overflow: hidden;
 
    &:before {

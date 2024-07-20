@@ -19,7 +19,7 @@ const Pagination = <T,>({ items, pageLimit, setPageItems }: PaginationProps<T>) 
 
    useEffect(() => {
       setPageItems(pageData());
-   }, [pageNumber, pageData, setPageItems]);
+   }, [pageNumber, setPageItems]);
 
    const renderPageNumbers = () => {
       const pageNumbers = [];

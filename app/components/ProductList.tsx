@@ -9,11 +9,9 @@ function ProductList({ data = [] }: { data: Product[] }) {
    const [showData, setShowData] = useState<Product[]>([]);
    return (
       <>
-         <div className={styles.center}>
-            {showData.map((item, i) => {
-               return <Card data={item} key={item.id} />;
-            })}
-         </div>
+         {showData.map((item, i) => {
+            return <Card data={item} key={item.id} />;
+         })}
          <Pagination items={data} pageLimit={6} setPageItems={setShowData} />
       </>
    );
