@@ -48,7 +48,7 @@ const Pagination = <T,>({ items, pageLimit, setPageItems }: PaginationProps<T>) 
    };
 
    return (
-      <div id="app" className="container">
+      <div className="container">
          <ul className="page">
             <Button startContent={<LeftArrowIcon />} variant="transparent" onClick={previousPage}>
                Prev

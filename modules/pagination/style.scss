@@ -1,3 +1,9 @@
+.container {
+   margin: 1em 0;
+   position: relative;
+   z-index: 20;
+}
+
 ul {
    list-style-type: none;
 }
@@ -56,6 +62,8 @@ ul {
    border-radius: 0.6rem;
    background: #1b1111;
    box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+   max-width: 24em;
+   margin: 0 auto;
 
    &__numbers,
    &__btn,

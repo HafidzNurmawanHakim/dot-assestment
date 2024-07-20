@@ -1,10 +1,24 @@
 .main {
-   display: flex;
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
    padding: 6rem;
    min-height: 100vh;
+}
+
+.list {
+   display: flex;
+   position: relative;
+   justify-content: center;
+   margin: 0 auto;
+   gap: 10px;
+   flex-wrap: wrap;
+   min-height: 25em;
+}
+
+.title {
+   text-align: center;
+   margin: 1em 0;
 }
 
 .description {
@@ -32,6 +46,11 @@
    background-color: rgba(var(--callout-rgb), 0.5);
    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
    border-radius: var(--border-radius);
+}
+
+.content {
+   position: relative;
+   z-index: 12;
 }
 
 .code {
@@ -75,10 +94,9 @@
 
 .center {
    display: flex;
-   justify-content: center;
-   align-items: center;
    position: relative;
-   padding: 4rem 0;
+   justify-content: center;
+   margin: 0 auto;
    gap: 10px;
    flex-wrap: wrap;
    max-width: 76%;
@@ -270,6 +288,7 @@
    filter: blur(100px);
    background: radial-gradient(circle at 50% 50%, rgba(76, 0, 255, 1), rgba(76, 0, 255, 0));
    opacity: 0.2;
+   pointer-events: none;
 }
 .cssRedGradient {
    position: fixed;
@@ -282,4 +301,6 @@
    filter: blur(100px);
    background: radial-gradient(circle at 50% 50%, rgb(156, 14, 45), rgba(76, 0, 255, 0));
    opacity: 0.2;
+   z-index: 0;
+   pointer-events: none;
 }
