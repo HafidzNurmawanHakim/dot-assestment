@@ -51,7 +51,6 @@ export const authOptions: NextAuthOptions = {
       },
       session: async ({ session, token }) => {
          if (token?.user) {
-            // Note that this if condition is needed
             session.user = token.user;
          }
          return {
@@ -64,6 +63,7 @@ export const authOptions: NextAuthOptions = {
          };
       },
    },
+   events: {},
 };
 
 const handler = NextAuth(authOptions);

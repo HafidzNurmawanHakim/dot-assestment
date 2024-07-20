@@ -8,11 +8,15 @@ import { fontPoppins } from "@/lib/fonts";
 
 async function getData({ page = 1 }) {
    try {
-      const data = await axios.get(`${process.env.NEXT_PUBLIC_SERVICE_URL}/products?page=${page}`, {
-         headers: {
-            "Content-Type": "application/json",
-         },
-      });
+      const data = await axios.get(
+         // "",
+         `${process.env.NEXT_PUBLIC_SERVICE_URL}/products?page=${page}`,
+         {
+            headers: {
+               "Content-Type": "application/json",
+            },
+         }
+      );
 
       if (data.status !== 200) {
          throw new Error(`Failed to fetch: ${data.statusText}`);
@@ -36,9 +40,10 @@ export default async function Home({
    return (
       <DefaultLayout>
          <div className={styles.cssPurpleGradient}></div>
-         <div className={styles.center}></div>
          <h1 className={styles.title + " " + fontPoppins.className}>Product</h1>
-         <ProductList data={data} />
+         <div className={styles.center}>
+            <ProductList data={data} />
+         </div>
          <div className={styles.cssRedGradient}></div>
       </DefaultLayout>
    );
